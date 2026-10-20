@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Босиком по степи, 1723–1730</title>
+<style>
+:root{--bg:#ecd9ac;--gold:#f3d9a0;--sky:#7fb6cf;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1a22}}
+:root[data-theme="dark"]{--bg:#1b1a22}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:#fff;font-family:"Noto Serif","PT Serif",Georgia,serif}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+#scrim{position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.12) 60%,transparent)}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:var(--sky);z-index:5}
+main{position:relative;z-index:2;pointer-events:none}
+.p{height:100vh;display:flex;flex-direction:column;justify-content:center;gap:.7rem;max-width:42rem;padding:0 clamp(1.5rem,6vw,6rem);text-shadow:0 2px 24px rgba(0,0,0,.65);opacity:0}
+.p small{font-size:1rem;color:var(--gold)}
+.p h2{font-size:clamp(2rem,6vw,4rem);line-height:1.1;margin:0;font-weight:600}
+.p p{font-size:clamp(1.05rem,2vw,1.25rem);line-height:1.65;margin:0;max-width:34rem;color:rgba(255,255,255,.92)}
+.p em{font-size:.9rem;color:rgba(255,255,255,.7)}
+nav{position:fixed;right:max(1rem,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);z-index:5;display:flex;flex-direction:column;gap:1rem}
+nav a{display:block;width:.8rem;height:.8rem;border-radius:50%;border:2px solid rgba(255,255,255,.6);transition:background .3s}
+nav a.on{background:var(--gold);border-color:var(--gold)}
+nav a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#card{position:fixed;right:3rem;bottom:1.5rem;z-index:6;width:min(22rem,calc(100% - 4rem));padding:1.1rem 1.2rem;background:rgba(22,17,12,.9);border:1px solid rgba(243,217,160,.5);border-radius:6px;pointer-events:auto;text-shadow:none}
+#card small{color:var(--gold)}#card h3{margin:.2rem 0 .5rem;font-size:1.5rem}#card p{margin:0 0 .6rem;line-height:1.55}#card em{font-size:.85rem;color:rgba(255,255,255,.65)}
+#cx{position:absolute;top:.4rem;right:.6rem;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}#cx:focus-visible{outline:2px solid #fff}
+</style>
+</head>
+<body>
+<div id="scrim"></div><div id="bar"></div>
+<nav aria-label="Сцены"></nav>
+<aside id="card" hidden role="dialog" aria-labelledby="cn"><button id="cx" aria-label="Закрыть">×</button><small id="cr"></small><h3 id="cn"></h3><p id="ct"></p><em>Достоверных прижизненных портретов нет, образ символический.</em></aside>
+<main>
+<section class="p"><small>Босиком по степи, 1723–1730</small><h2>Степь без заборов</h2><p>Ни стен, ни границ на карте. Дом здесь — это конь, юрта и память рода до седьмого колена. Три жуза — три пальца одной руки. А на востоке крепнет государство, которое умеет отливать пушки.</p></section>
+<section class="p"><small>Весна 1723-го</small><h2>Босиком — потому что некогда было обуваться</h2><p>Аулы только вышли на весенние пастбища, скот отощал за зиму, мужчины разбросаны по степи. Джунгары ударили, когда их не ждали. «Ақ табан» — «белые подошвы»; «шұбырынды» — длинная нить людей на дороге. Эти два слова стали именем эпохи.</p></section>
+<section class="p"><small>Алқакөл сұлама</small><h2>Озеро, которое помнит</h2><p>По преданию, у озера Алқакөл полегло столько людей, что «сұлама» вошло в имя эпохи. Где было озеро и сколько погибло, историки спорят, и мы не станем выдумывать цифры. Известно главное: страна разорвалась, рода потеряли друг друга.</p></section>
+<section class="p"><small>1726, Ордабасы</small><h2>Пальцы в кулак</h2><p>Три года бегства научили одному: поодиночке не выжить. На холме Ордабасы собрались старейшины, бии и батыры трёх жузов. Спорили, вспоминали обиды и всё-таки сошлись. Главнокомандующим решили сделать Абулхаир-хана. Год спустя, на реке Буланты, ополчение нанесло первое серьёзное поражение.</p><em>Нажмите на портреты участников в лагере.</em></section>
+<section class="p"><small>1729–1730, Аныракай</small><h2>Место, где степь выдохнула</h2><p>У гор Аныракай сошлись две силы: одни с пушками и фитильными ружьями, другие с конём, луком и привычкой стоять плечом к плечу. Когда строй дрогнул и откатился, наступила тишина, какой степь не слышала годами.</p><em>Историческая реконструкция: детали даны по народной памяти, точные цифры не приводятся.</em></section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const ss=THREE.MathUtils.smoothstep,lerp=THREE.MathUtils.lerp,clamp=THREE.MathUtils.clamp;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const st={p:0};
+
+/* Рельеф */
+const hs=(x,y)=>{const s=Math.sin(x*127.1+y*311.7)*43758.5453;return s-Math.floor(s)};
+const vn=(x,y)=>{const xi=Math.floor(x),yi=Math.floor(y),fx=x-xi,fy=y-yi,u=fx*fx*(3-2*fx),v=fy*fy*(3-2*fy);
+  const a=hs(xi,yi),b=hs(xi+1,yi),c=hs(xi,yi+1),d=hs(xi+1,yi+1);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v};
+const fbm=(x,y)=>{let s=0,a=.5,f=1;for(let i=0;i<4;i++){s+=vn(x*f,y*f)*a;f*=2;a*=.5}return s};
+const AUL=[0,0],LAKE=[-70,-45],CAMP=[-45,25],WAR=[0,-90];
+const dist=(x,z,s)=>Math.hypot(x-s[0],z-s[1]);
+function H(x,z){
+  const dm=Math.min(dist(x,z,AUL),dist(x,z,LAKE),dist(x,z,CAMP),dist(x,z,WAR)-60);
+  const rolling=(fbm(x*.02,z*.02)-.45)*14*ss(dm,10,40);
+  const ridge=ss(x,70,150)*34*(.6+fbm(x*.03+9,z*.03));
+  const basin=-3*(1-ss(dist(x,z,LAKE),14,26));
+  return rolling+ridge+basin;
+}
+
+/* Сцена */
+const renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));
+document.body.prepend(renderer.domElement);
+const scene=new THREE.Scene();
+scene.background=new THREE.Color('#ecd9ac');
+scene.fog=new THREE.Fog('#ecd9ac',30,150);
+const cam=new THREE.PerspectiveCamera(50,1,.1,500);
+const hemi=new THREE.HemisphereLight('#fff1d6','#5b5a3a',.8);
+const sun=new THREE.DirectionalLight('#ffd49a',1.3);sun.position.set(-60,22,30);
+scene.add(hemi,sun);
+
+const G=new THREE.Color('#7f9457'),S=new THREE.Color('#c9b074'),R=new THREE.Color('#756a60'),W=new THREE.Color('#ebe7df'),tmp=new THREE.Color();
+{
+  const g=new THREE.PlaneGeometry(360,360,170,170);g.rotateX(-Math.PI/2);
+  const pos=g.attributes.position,col=new Float32Array(pos.count*3);
+  for(let i=0;i<pos.count;i++){
+    const h=H(pos.getX(i),pos.getZ(i));pos.setY(i,h);
+    if(h<4)tmp.copy(G).lerp(S,ss(h,-3,4));else if(h<22)tmp.copy(S).lerp(R,ss(h,4,22));else tmp.copy(R).lerp(W,ss(h,26,38));
+    col.set([tmp.r,tmp.g,tmp.b],i*3);
+  }
+  g.setAttribute('color',new THREE.BufferAttribute(col,3));g.computeVertexNormals();
+  scene.add(new THREE.Mesh(g,new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:1})));
+}
+
+/* Юрты */
+const wallG=new THREE.CylinderGeometry(1.6,1.6,1.6,12),roofG=new THREE.ConeGeometry(1.9,1.2,12);
+const wallM=new THREE.MeshStandardMaterial({color:'#efe6d0',flatShading:true}),roofM=new THREE.MeshStandardMaterial({color:'#e2d5b6',flatShading:true});
+function yurt(x,z,s){
+  const g=new THREE.Group(),w=new THREE.Mesh(wallG,wallM),r=new THREE.Mesh(roofG,roofM);
+  w.position.y=.8;r.position.y=2.05;g.add(w,r);g.position.set(x,H(x,z),z);g.scale.setScalar(s);g.rotation.y=x*z;scene.add(g);
+}
+for(let i=0;i<7;i++){const a=i/7*6.28+.3,r=6+(i*37%7);yurt(Math.cos(a)*r,Math.sin(a)*r,.8+(i%3)*.25)}
+for(let i=0;i<3;i++){const a=i*2.1+.5;yurt(CAMP[0]+Math.cos(a)*13,CAMP[1]+Math.sin(a)*13,1)}
+
+/* Пыль */
+const DN=450,dpos=new Float32Array(DN*3);
+for(let i=0;i<DN*3;i+=3){dpos[i]=-100+Math.random()*220;dpos[i+1]=1+Math.random()*30;dpos[i+2]=-110+Math.random()*190}
+const dust=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.BufferAttribute(dpos,3)),
+  new THREE.PointsMaterial({size:.25,color:'#e8d7a8',transparent:true,opacity:.5,depthWrite:false}));
+scene.add(dust);
+
+/* Озеро и огоньки */
+const lake=new THREE.Mesh(new THREE.CircleGeometry(22,40),new THREE.MeshStandardMaterial({color:'#2c4a7a',roughness:.2,transparent:true,opacity:.88}));
+lake.rotation.x=-Math.PI/2;lake.position.set(LAKE[0],-1.2,LAKE[1]);scene.add(lake);
+const fp=new Float32Array(150*3);
+for(let i=0;i<150*3;i+=3){const a=Math.random()*6.28,r=4+Math.random()*24;fp[i]=LAKE[0]+Math.cos(a)*r;fp[i+1]=.3+Math.random()*3;fp[i+2]=LAKE[1]+Math.sin(a)*r}
+const fire=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.BufferAttribute(fp,3)),
+  new THREE.PointsMaterial({size:.55,color:'#ffb45e',transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false}));
+scene.add(fire);
+
+/* Лагерь на Ордабасы: костёр и три знамени */
+const campFire=new THREE.PointLight('#ff9a40',0,60);campFire.position.set(CAMP[0],3,CAMP[1]);scene.add(campFire);
+const flame=new THREE.Mesh(new THREE.ConeGeometry(.9,2,8),new THREE.MeshBasicMaterial({color:'#ff9a40'}));flame.position.set(CAMP[0],1,CAMP[1]);scene.add(flame);
+['#5b8fd6','#d6b24a','#c0503c'].forEach((c,i)=>{
+  const a=i*2.094,x=CAMP[0]+Math.cos(a)*7,z=CAMP[1]+Math.sin(a)*7;
+  const pole=new THREE.Mesh(new THREE.CylinderGeometry(.1,.1,7,6),new THREE.MeshStandardMaterial({color:'#4a3a2a'}));pole.position.set(x,3.5,z);
+  const flag=new THREE.Mesh(new THREE.BoxGeometry(.1,1.6,2.6),new THREE.MeshStandardMaterial({color:c}));flag.position.set(x,6,z+1.3);
+  scene.add(pole,flag);
+});
+
+/* Поток беженцев */
+const v3=a=>new THREE.Vector3(...a);
+const SP=new THREE.CatmullRomCurve3([[40,0,10],[10,0,-6],[-25,0,-25],[-62,0,-42]].map(v3));
+const NR=220,dummy=new THREE.Object3D(),tv=new THREE.Vector3(),rnd=Array.from({length:NR},()=>Math.random());
+const crowd=new THREE.InstancedMesh(new THREE.BoxGeometry(.5,1.4,.5),new THREE.MeshStandardMaterial({color:'#2e2a2a'}),NR);scene.add(crowd);
+
+/* Две армии (учебная схема, не масштаб) */
+const mk=c=>{const m=new THREE.InstancedMesh(new THREE.BoxGeometry(.8,1.6,1.3),new THREE.MeshStandardMaterial({color:c}),240);scene.add(m);return m};
+const armies=[mk('#7fb6cf'),mk('#b4553a')];
+
+/* Портреты участников: рамки в 3D вокруг лагеря, по клику открывается карточка */
+const FIG=[
+ {id:'abulkhair',type:'khan',kk:'Әбілқайыр хан',ru:'Абулхаир-хан',role:'хан Младшего жуза',t:'По народной традиции на сборе Ордабасы избран главнокомандующим.'},
+ {id:'tole',type:'biy',kk:'Төле би',ru:'Төле би',role:'бий Старшего жуза',t:'Судья и оратор. Народная традиция видит в нём одного из тех, кто удерживал единство жузов.'},
+ {id:'kazybek',type:'biy',kk:'Қазыбек би',ru:'Казыбек би',role:'бий Среднего жуза',t:'Судья и оратор. Его участие в событиях тех лет передаёт народная традиция.'},
+ {id:'bogenbai',type:'batyr',kk:'Бөгенбай батыр',ru:'Богенбай-батыр',role:'батыр, Средний жуз',t:'Один из ключевых полководцев в войне с джунгарами.'},
+ {id:'kabanbai',type:'batyr',kk:'Қабанбай батыр',ru:'Кабанбай-батыр',role:'батыр, Средний жуз',t:'Полководец, прославившийся в борьбе с джунгарами.'},
+ {id:'raiymbek',type:'batyr',kk:'Райымбек батыр',ru:'Райымбек-батыр',role:'батыр, Старший жуз',t:'Батыр рода албан, участник борьбы с джунгарами.'}
+];
+// Чтобы показать настоящее фото или портрет, впишите путь, например tole:'portraits/tole.jpg'.
+// На опубликованной странице внешние адреса блокируются, там работают только data:-ссылки.
+const PORTRAITS={};
+const KC={khan:'#c8963c',biy:'#4f7fb0',batyr:'#a8523c'},SERIF='"Noto Serif","PT Serif",Georgia,serif';
+function draw(c,f,img){
+  const x=c.getContext('2d'),W=464,Hh=470;
+  x.fillStyle='#1d1812';x.fillRect(0,0,512,704);
+  const g=x.createLinearGradient(0,24,0,494);g.addColorStop(0,f.k);g.addColorStop(1,'#2a2118');
+  x.fillStyle=g;x.fillRect(24,24,W,Hh);
+  if(img){const s=Math.max(W/img.width,Hh/img.height);x.save();x.beginPath();x.rect(24,24,W,Hh);x.clip();
+    x.drawImage(img,256-img.width*s/2,259-img.height*s/2,img.width*s,img.height*s);x.restore()}
+  else{x.fillStyle='rgba(18,14,10,.88)';x.beginPath();x.arc(256,250,66,0,6.283);x.fill();
+    x.beginPath();x.moveTo(84,494);x.quadraticCurveTo(84,350,256,330);x.quadraticCurveTo(428,350,428,494);x.closePath();x.fill()}
+  x.strokeStyle='#f3d9a0';x.lineWidth=8;x.strokeRect(24,24,W,Hh);
+  x.textAlign='center';x.fillStyle='#f6ecd2';x.font='600 46px '+SERIF;x.fillText(f.kk,256,570);
+  x.fillStyle='#f3d9a0';x.font='28px '+SERIF;x.fillText(f.role,256,618);
+  if(!img){x.fillStyle='rgba(255,255,255,.55)';x.font='italic 21px '+SERIF;x.fillText('символический образ, не портрет',256,665)}
+}
+const pf=new THREE.Group(),frames=[];scene.add(pf);
+FIG.forEach((f,i)=>{
+  const a=(15+24*i)*Math.PI/180,x=CAMP[0]+Math.cos(a)*18,z=CAMP[1]+Math.sin(a)*18,y=H(x,z);
+  f.k=KC[f.type];
+  const c=document.createElement('canvas');c.width=512;c.height=704;draw(c,f,null);
+  const tex=new THREE.CanvasTexture(c);
+  const m=new THREE.Mesh(new THREE.PlaneGeometry(5.5,7.56),new THREE.MeshBasicMaterial({map:tex}));
+  m.position.set(x,y+5.3,z);m.rotation.y=Math.PI/2-a;m.userData.f=f;
+  const pole=new THREE.Mesh(new THREE.CylinderGeometry(.08,.08,1.6,6),new THREE.MeshStandardMaterial({color:'#4a3a2a'}));pole.position.set(x,y+.8,z);
+  pf.add(m,pole);frames.push(m);
+  if(PORTRAITS[f.id]){const im=new Image();im.crossOrigin='anonymous';im.onload=()=>{draw(c,f,im);tex.needsUpdate=true};im.src=PORTRAITS[f.id]}
+});
+pf.visible=false;
+const ray=new THREE.Raycaster(),m2=new THREE.Vector2(),card=document.getElementById('card'),$=id=>document.getElementById(id);
+function pick(e){m2.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight*2-1));ray.setFromCamera(m2,cam);return pf.visible&&ray.intersectObjects(frames)[0]}
+function showCard(f){$('cr').textContent=f.role;$('cn').textContent=f.ru+(f.kk!==f.ru?' ('+f.kk+')':'');$('ct').textContent=f.t;card.hidden=false;$('cx').focus()}
+renderer.domElement.addEventListener('pointerdown',e=>{const h=pick(e);if(h)showCard(h.object.userData.f)});
+renderer.domElement.addEventListener('pointermove',e=>{renderer.domElement.style.cursor=pick(e)?'pointer':''});
+$('cx').onclick=()=>card.hidden=true;
+addEventListener('keydown',e=>{if(e.key==='Escape')card.hidden=true});
+
+/* Путь камеры: 17 точек, ключевые кадры сцен на 0, 4, 8, 12, 16 */
+const P=[[-40,46,60],[-22,24,36],[-8,7,16],[12,5,18],[30,4,24],[8,4,12],[-25,5,-6],[-48,6,-52],[-90,8,-30],
+ [-95,12,-62],[-70,26,-72],[-60,20,-5],[-30,14,50],[-64,8,38],[-45,12,-30],[-50,5,-72],[-22,40,-62]];
+const L=[[0,0,0],[0,2,0],[0,3,0],[14,2,2],[22,2,4],[0,2,-8],[-28,2,-24],[-70,0,-45],[-70,0,-45],
+ [-70,0,-45],[-60,0,-30],[-45,2,25],[-45,2,25],[-45,2,25],[-10,2,-75],[0,2,-90],[0,0,-90]];
+const curve=a=>new THREE.CatmullRomCurve3(a.map(v3),false,'catmullrom',.5);
+const cp=curve(P),cl=curve(L),pv=new THREE.Vector3(),lv=new THREE.Vector3(),sway=new THREE.Vector2(),ptr=new THREE.Vector2();
+addEventListener('pointermove',e=>ptr.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight*2-1)));
+
+/* Настроение по сценам */
+const MOOD=[['#ecd9ac','#ffd49a',1.3,30,150,.8],['#54474a','#b9a89a',.7,10,90,.55],['#1d2745','#7f95d0',.5,18,120,.5],
+ ['#22150f','#ff9552',.35,14,95,.4],['#d9a77a','#ffcf9c',1.1,30,170,.75]].map(m=>({f:new THREE.Color(m[0]),s:new THREE.Color(m[1]),si:m[2],n:m[3],fa:m[4],h:m[5]}));
+const win=(p,c,w)=>Math.max(0,1-Math.abs(p-c)/w);
+
+function resize(){renderer.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}
+addEventListener('resize',resize);resize();
+
+renderer.setAnimationLoop(ms=>{
+  const t=ms/1000,p=clamp(st.p,0,1);
+  // камера
+  cp.getPoint(p,pv);cl.getPoint(p,lv);
+  sway.lerp(ptr,.04);
+  cam.position.set(pv.x+sway.x*1.5,Math.max(pv.y+sway.y*.8,H(pv.x,pv.z)+2.5),pv.z);cam.lookAt(lv);
+  // настроение
+  const q=p*4,i=Math.min(3,Math.floor(q)),k=ss(q-i,0,1),a=MOOD[i],b=MOOD[i+1];
+  scene.fog.color.copy(a.f).lerp(b.f,k);scene.background.copy(scene.fog.color);
+  scene.fog.near=lerp(a.n,b.n,k);scene.fog.far=lerp(a.fa,b.fa,k);
+  sun.color.copy(a.s).lerp(b.s,k);sun.intensity=lerp(a.si,b.si,k);hemi.intensity=lerp(a.h,b.h,k);
+  // пыль
+  if(!reduce){const d=dust.geometry.attributes.position;for(let j=0;j<DN;j++){d.array[j*3]-=.04*(1+j%5*.3);if(d.array[j*3]<-100)d.array[j*3]+=220}d.needsUpdate=true}
+  // огоньки, костёр
+  fire.material.opacity=win(p,.5,.2)*(.7+.3*Math.sin(t*3));
+  campFire.intensity=win(p,.75,.2)*(2.4+Math.sin(t*9)*.4);flame.visible=p>.55&&p<.95;flame.scale.y=1+Math.sin(t*10)*.2;
+  // беженцы
+  crowd.visible=p>.1&&p<.55;pf.visible=p>.5&&p<.97;
+  if(crowd.visible)for(let j=0;j<NR;j++){
+    SP.getPoint((j/NR+t*.012)%1,tv);const o=(rnd[j]-.5)*8;
+    dummy.position.set(tv.x+o*.7,.7+Math.abs(Math.sin(t*6+j))*.15,tv.z+o);dummy.updateMatrix();crowd.setMatrixAt(j,dummy.matrix);
+  }
+  crowd.instanceMatrix.needsUpdate=true;
+  // армии
+  const vis=p>.7;armies.forEach(m=>m.visible=vis);
+  if(vis){
+    const adv=ss(p,.8,.9),ret=ss(p,.9,1);
+    armies.forEach((m,n)=>{for(let j=0;j<240;j++){
+      const cx=j%20,cz=(j/20)|0,x=n?lerp(60,8,adv)+cx*1.6+ret*75:-lerp(60,8,adv)-cx*1.6+ret*20;
+      dummy.position.set(x,.8+Math.abs(Math.sin(t*8+j))*.12,WAR[1]+(cz-5.5)*2);dummy.updateMatrix();m.setMatrixAt(j,dummy.matrix);
+    }m.instanceMatrix.needsUpdate=true});
+  }
+  renderer.render(scene,cam);
+});
+
+/* Скролл → прогресс (GSAP) */
+const bar=document.getElementById('bar'),nav=document.querySelector('nav'),dots=[];
+for(let n=0;n<5;n++){const a=document.createElement('a');a.href='#';a.setAttribute('aria-label','Сцена '+(n+1));
+  a.onclick=e=>{e.preventDefault();scrollTo({top:n*innerHeight,behavior:reduce?'auto':'smooth'})};nav.append(a);dots.push(a)}
+gsap.to(st,{p:1,ease:'none',scrollTrigger:{trigger:'main',start:'top top',end:'bottom bottom',scrub:reduce?true:1,
+  onUpdate:s=>{bar.style.width=s.progress*100+'%';const c=Math.round(s.progress*4);dots.forEach((d,n)=>d.classList.toggle('on',n===c))}}});
+document.querySelectorAll('.p').forEach(el=>gsap.timeline({scrollTrigger:{trigger:el,start:'top 70%',end:'bottom 30%',scrub:true}})
+  .fromTo(el,{autoAlpha:0},{autoAlpha:1,duration:.25,ease:'none'}).to(el,{autoAlpha:1,duration:.5}).to(el,{autoAlpha:0,duration:.25,ease:'none'}));
+</script>
+</body>
+</html>
